@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.WebAPI", "..\Confitec.WebAPI\Confitec.WebAPI.csproj", "{40430558-5167-40E7-8CE2-377C14F21CCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Application", "..\Confitec.Application\Confitec.Application.csproj", "{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{40430558-5167-40E7-8CE2-377C14F21CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40430558-5167-40E7-8CE2-377C14F21CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40430558-5167-40E7-8CE2-377C14F21CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F} = {DA96D185-2D90-4D80-BBCB-F401BB3B1174}
 		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4} = {C2F3AC24-180B-4BE2-A1E7-5505BE356484}
 		{40430558-5167-40E7-8CE2-377C14F21CCD} = {A1FA3887-B086-49AC-8F73-3D61A6E512F6}
+		{7AA3A947-BD31-4FBD-8BDF-8F4B58029123} = {6389F5CA-F347-4655-A78B-D9676083E337}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA4343A6-7E62-4A0B-B898-DBCFD42DBBCD}

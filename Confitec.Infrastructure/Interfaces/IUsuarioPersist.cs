@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace Confitec.Infrastructure.Interfaces
 {
-    public interface IUsuario
+    public interface IUsuarioPersist
     {
         Task<List<Usuario>> GetAllUsuariosAsync();
-        Task<Usuario> GetUsuariosByIdAsync(int usuarioId);
+        Task<Usuario> GetUsuarioByIdAsync(int usuarioId);
         Task<List<Usuario>> GetUsuariosByNomeAsync(string nome);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Confitec.Infrastructure.Interfaces
 {
-    public interface IGeneric
+    public interface IGenericPersist
     {
         //Geral
         void Add<T>(T entity) where T : class;

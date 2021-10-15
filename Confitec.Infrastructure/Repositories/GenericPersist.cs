@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Confitec.Infrastructure.Repositories
 {
-    public class Generic : IGeneric
+    public class GenericPersist : IGenericPersist
     {
         private readonly ConfitecContext _context;
 
-        public Generic(ConfitecContext context)
+        public GenericPersist(ConfitecContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }

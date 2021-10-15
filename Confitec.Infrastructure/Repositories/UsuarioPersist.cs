@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Confitec.Infrastructure.Repositories
 {
-    public class UsuarioPersit : IUsuario
+    public class UsuarioPersist : IUsuarioPersist
     {
         private readonly ConfitecContext _context;
 
-        public UsuarioPersit(ConfitecContext context)
+        public UsuarioPersist(ConfitecContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
@@ -23,7 +23,7 @@ namespace Confitec.Infrastructure.Repositories
             return await _context.Usuarios.AsNoTracking().ToListAsync();
         }
 
-        public async Task<Usuario> GetUsuariosByIdAsync(int usuarioId)
+        public async Task<Usuario> GetUsuarioByIdAsync(int usuarioId)
         {
             return await _context.Usuarios.AsNoTracking().SingleOrDefaultAsync(c => c.Id == usuarioId);
         }
