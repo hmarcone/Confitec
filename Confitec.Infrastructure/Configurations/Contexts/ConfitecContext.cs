@@ -15,7 +15,7 @@ namespace Confitec.Infrastructure.Configurations.Contexts
         {
             //base.OnModelCreating(modelBuilder);
 
-            _ = new UsuarioConfiguration(modelBuilder.Entity<Usuario>());
+            new UsuarioConfiguration(modelBuilder.Entity<Usuario>());
         }
     }
 }
