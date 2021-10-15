@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{60E85383-E8A1-4256-9CCC-219D0E854661}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - APIs", "1 - APIs", "{A1FA3887-B086-49AC-8F73-3D61A6E512F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{6389F5CA-F347-4655-A78B-D9676083E337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{DA96D185-2D90-4D80-BBCB-F401BB3B1174}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C2F3AC24-180B-4BE2-A1E7-5505BE356484}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Domain", "..\Confitec.Domain\Confitec.Domain.csproj", "{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Infrastructure", "..\Confitec.Infrastructure\Confitec.Infrastructure.csproj", "{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.WebAPI", "..\Confitec.WebAPI\Confitec.WebAPI.csproj", "{40430558-5167-40E7-8CE2-377C14F21CCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40430558-5167-40E7-8CE2-377C14F21CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40430558-5167-40E7-8CE2-377C14F21CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40430558-5167-40E7-8CE2-377C14F21CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40430558-5167-40E7-8CE2-377C14F21CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1FA3887-B086-49AC-8F73-3D61A6E512F6} = {60E85383-E8A1-4256-9CCC-219D0E854661}
+		{6389F5CA-F347-4655-A78B-D9676083E337} = {60E85383-E8A1-4256-9CCC-219D0E854661}
+		{DA96D185-2D90-4D80-BBCB-F401BB3B1174} = {60E85383-E8A1-4256-9CCC-219D0E854661}
+		{C2F3AC24-180B-4BE2-A1E7-5505BE356484} = {60E85383-E8A1-4256-9CCC-219D0E854661}
+		{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F} = {DA96D185-2D90-4D80-BBCB-F401BB3B1174}
+		{66BC800A-F5E1-4CAA-8119-07CBA5A212A4} = {C2F3AC24-180B-4BE2-A1E7-5505BE356484}
+		{40430558-5167-40E7-8CE2-377C14F21CCD} = {A1FA3887-B086-49AC-8F73-3D61A6E512F6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA4343A6-7E62-4A0B-B898-DBCFD42DBBCD}
+	EndGlobalSection
+EndGlobal
