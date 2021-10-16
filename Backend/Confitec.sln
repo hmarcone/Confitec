@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C2F3AC24-180B-4BE2-A1E7-5505BE356484}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Domain", "..\Confitec.Domain\Confitec.Domain.csproj", "{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Domain", "..\Backend\Confitec.Domain\Confitec.Domain.csproj", "{3B8D52AD-8EB3-4A2E-9106-835941CCBF2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Infrastructure", "..\Confitec.Infrastructure\Confitec.Infrastructure.csproj", "{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confitec.Infrastructure", "..\Backend\Confitec.Infrastructure\Confitec.Infrastructure.csproj", "{66BC800A-F5E1-4CAA-8119-07CBA5A212A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.WebAPI", "..\Confitec.WebAPI\Confitec.WebAPI.csproj", "{40430558-5167-40E7-8CE2-377C14F21CCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.WebAPI", "..\Backend\Confitec.WebAPI\Confitec.WebAPI.csproj", "{40430558-5167-40E7-8CE2-377C14F21CCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Application", "..\Confitec.Application\Confitec.Application.csproj", "{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confitec.Application", "..\Backend\Confitec.Application\Confitec.Application.csproj", "{7AA3A947-BD31-4FBD-8BDF-8F4B58029123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
