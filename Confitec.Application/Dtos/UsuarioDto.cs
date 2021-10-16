@@ -27,6 +27,7 @@ namespace Confitec.Application.Dtos
         [ConfitecDate(ErrorMessage = "A data de nascimento não pode ser maior que hoje.")]
         public DateTime DataNascimento { get; set; }
 
+        [EnumDataType(typeof(TipoEscolaridade), ErrorMessage = "Tipo de escolaridade inválido!")]
         public TipoEscolaridade Escolaridade { get; set; }
 
     }

@@ -1,4 +1,8 @@
+using Confitec.Application.Interfaces;
+using Confitec.Application.Services;
 using Confitec.Infrastructure.Configurations.Contexts;
+using Confitec.Infrastructure.Interfaces;
+using Confitec.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace Confitec.WebAPI
 {
@@ -25,7 +30,19 @@ namespace Confitec.WebAPI
                                      options.UseSqlServer(
                                          Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllers();
+            //services.AddControllers();
+
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling =
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                    );
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IGenericPersist, GenericPersist>();
+            services.AddScoped<IUsuarioPersist, UsuarioPersist>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Confitec.WebAPI", Version = "v1" });

@@ -13,10 +13,10 @@ namespace Confitec.Application.Services
     public class UsuarioService : IUsuarioService
     {
         private readonly IGenericPersist _genericPersist;
-        private readonly UsuarioPersist _usuarioPersist;
+        private readonly IUsuarioPersist _usuarioPersist;
         private readonly IMapper _mapper;
 
-        public UsuarioService(IGenericPersist generic, UsuarioPersist usuarioPersit, IMapper mapper)
+        public UsuarioService(IGenericPersist generic, IUsuarioPersist usuarioPersit, IMapper mapper)
         {
             _genericPersist = generic ?? throw new ArgumentNullException(nameof(generic));
             _usuarioPersist = usuarioPersit ?? throw new ArgumentNullException(nameof(usuarioPersit));
@@ -45,6 +45,7 @@ namespace Confitec.Application.Services
                 throw new Exception(ex.Message);
             }
         }
+
         public async Task<UsuarioDto> UpdateUsuario(int usuarioId, UsuarioDto usuarioDto)
         {
             try
