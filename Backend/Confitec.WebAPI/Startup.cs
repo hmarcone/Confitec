@@ -43,6 +43,8 @@ namespace Confitec.WebAPI
             services.AddScoped<IGenericPersist, GenericPersist>();
             services.AddScoped<IUsuarioPersist, UsuarioPersist>();
 
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Confitec.WebAPI", Version = "v1" });
@@ -64,6 +66,12 @@ namespace Confitec.WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowAnyOrigin()
+                       );
 
             app.UseEndpoints(endpoints =>
             {
