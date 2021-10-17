@@ -1,7 +1,12 @@
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { UsuarioService } from './../../../services/usuario.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -12,19 +17,18 @@ import { Usuario } from './../../../models/Usuario';
 @Component({
   selector: 'app-usuario-detalhe',
   templateUrl: './usuario-detalhe.component.html',
-  styleUrls: ['./usuario-detalhe.component.css']
+  styleUrls: ['./usuario-detalhe.component.css'],
 })
 export class UsuarioDetalheComponent implements OnInit {
-
   usuario = {} as Usuario;
   form!: FormGroup;
   estadoSalvar = 'post';
 
   escolaridades: any[] = [
-    { "id": "1", "name": "Infantil" },
-    { "id": "2", "name": "Fundamental" },
-    { "id": "3", "name": "Ensino Médio" },
-    { "id": "4", "name": "Ensino Superior" }
+    { id: '1', name: 'Infantil' },
+    { id: '2', name: 'Fundamental' },
+    { id: '3', name: 'Ensino Médio' },
+    { id: '4', name: 'Ensino Superior' },
   ];
 
   get f(): any {
@@ -36,10 +40,9 @@ export class UsuarioDetalheComponent implements OnInit {
       adaptivePosition: true,
       dateInputFormat: 'DD/MM/YYYY hh:mm a',
       containerClass: 'theme-default',
-      showWeekNumbers: false
+      showWeekNumbers: false,
     };
   }
-
 
   constructor(
     private fb: FormBuilder,
@@ -49,8 +52,7 @@ export class UsuarioDetalheComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
     private changeDetector: ChangeDetectorRef
-  )
-  {
+  ) {
     this.localeService.use('pt-br');
   }
 
@@ -64,7 +66,7 @@ export class UsuarioDetalheComponent implements OnInit {
 
       this.usuarioService.getUsuarioById(+usuarioIdParam).subscribe(
         (usuario: Usuario) => {
-          this.usuario = {...usuario};
+          this.usuario = { ...usuario };
           this.form.patchValue(this.usuario);
         },
         (error: any) => {
@@ -72,7 +74,7 @@ export class UsuarioDetalheComponent implements OnInit {
           this.toastr.error('Erro ao tentar carregar usuário.', 'Erro!');
           console.error(error);
         },
-        () => this.spinner.hide(),
+        () => this.spinner.hide()
       );
     }
   }
@@ -84,12 +86,25 @@ export class UsuarioDetalheComponent implements OnInit {
 
   public validation(): void {
     this.form = this.fb.group({
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
-      sobreNome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
+      nome: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(256),
+        ],
+      ],
+      sobreNome: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(256),
+        ],
+      ],
       email: ['', [Validators.required, Validators.email]],
       dataNascimento: ['', Validators.required],
-      //escolaridade: ['', [Validators.required, Validators.max(120000)]]
-      escolaridade: [null, [Validators.required]]
+      escolaridade: [null, [Validators.required]],
     });
   }
 
@@ -98,39 +113,26 @@ export class UsuarioDetalheComponent implements OnInit {
   }
 
   public cssValidator(campoForm: FormControl): any {
-    return {'is-invalid': campoForm.errors && campoForm.touched};
+    return { 'is-invalid': campoForm.errors && campoForm.touched };
   }
 
   public salvarAlteracao(): void {
     this.spinner.show();
     if (this.form.valid) {
+      this.usuario =
+        this.estadoSalvar === 'post'
+          ? { ...this.form.value }
+          : { id: this.usuario.id, ...this.form.value };
 
-      this.usuario = (this.estadoSalvar === 'post')
-                ? {...this.form.value}
-                : {id: this.usuario.id, ...this.form.value};
-
-      if (this.estadoSalvar === 'post'){
-        this.usuarioService[this.estadoSalvar](this.usuario).subscribe(
-          () => this.toastr.success('Usuário salvo com Sucesso!', 'Sucesso'),
-          (error: any) => {
-            console.error(error);
-            this.spinner.hide();
-            this.toastr.error('Error ao salvar usuário', 'Erro');
-          },
-          () => this.spinner.hide()
-        );
-      }else{
-        this.usuarioService['put'](this.usuario).subscribe(
-          () => this.toastr.success('Usuário salvo com Sucesso!', 'Sucesso'),
-          (error: any) => {
-            console.error(error);
-            this.spinner.hide();
-            this.toastr.error('Error ao salvar usuário', 'Erro');
-          },
-          () => this.spinner.hide()
-        );
-
-      }
+      this.usuarioService[this.estadoSalvar](this.usuario).subscribe(
+        () => this.toastr.success('Usuário salvo com Sucesso!', 'Sucesso'),
+        (error: any) => {
+          console.error(error);
+          this.spinner.hide();
+          this.toastr.error('Error ao salvar usuário', 'Erro');
+        },
+        () => this.spinner.hide()
+      );
     }
   }
 

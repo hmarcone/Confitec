@@ -19,7 +19,6 @@ export class TituloComponent implements OnInit {
   }
 
   listar(): void {
-    debugger
     console.log(`/${this.titulo.toLocaleLowerCase().replace("á","a")}/lista`);
     this.router.navigate([`/${this.titulo.toLocaleLowerCase().replace("á","a")}/lista`]);
   }
