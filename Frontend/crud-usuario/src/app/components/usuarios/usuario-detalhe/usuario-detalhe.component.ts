@@ -20,6 +20,13 @@ export class UsuarioDetalheComponent implements OnInit {
   form!: FormGroup;
   estadoSalvar = 'post';
 
+  escolaridades: any[] = [
+    { "id": "1", "name": "Infantil" },
+    { "id": "2", "name": "Fundamental" },
+    { "id": "3", "name": "Ensino Médio" },
+    { "id": "4", "name": "Ensino Superior" }
+  ];
+
   get f(): any {
     return this.form.controls;
   }
@@ -81,8 +88,8 @@ export class UsuarioDetalheComponent implements OnInit {
       sobreNome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
       email: ['', [Validators.required, Validators.email]],
       dataNascimento: ['', Validators.required],
-      // escolaridade: ['', [Validators.required, Validators.max(120000)]]
-      escolaridade: ['', [Validators.required]]
+      //escolaridade: ['', [Validators.required, Validators.max(120000)]]
+      escolaridade: [null, [Validators.required]]
     });
   }
 

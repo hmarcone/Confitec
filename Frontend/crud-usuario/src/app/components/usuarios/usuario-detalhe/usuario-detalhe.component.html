@@ -71,19 +71,15 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>Escolaridade</label>
-          <input type="text" class="form-control" [ngClass]="cssValidator(f.nome)" formControlName="escolaridade"
-            placeholder="Insira a escolaridade">
 
-          <div *ngIf="f.escolaridade.errors?.required" class="invalid-feedback">
+          <select formControlName="escolaridade" class="form-control" [ngClass]="cssValidator(f.escolaridade)">
+            <option [ngValue]="null">Selecione a escolaridade</option>
+            <option *ngFor="let esc of escolaridades" [value]="esc.id" [selected]="esc.selected == true">{{esc.name}}</option>
+          </select>
+
+          <div *ngIf="f.escolaridade.errors?.required && f.escolaridade.touched"  class="invalid-feedback">
             Escolaridade é obrigatório.
           </div>
-
-          <!-- <div *ngIf="f.nome.errors?.minlength" class="invalid-feedback">
-            Escolaridade deve ter no mínimo 3 caracteres.
-          </div>
-          <div *ngIf="f.nome.errors?.maxlength" class="invalid-feedback">
-            Escolaridade deve ter no máximo 256 caracteres.
-          </div> -->
         </div>
       </div>
     </div>

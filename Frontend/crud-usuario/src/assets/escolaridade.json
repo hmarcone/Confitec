@@ -1,0 +1,6 @@
+[
+  { "id": "1", "name": "Infantil", "category": "front-end"},
+  { "id": "2", "name": "React", "category": "front-end"},
+  { "id": "3", "name": "C#", "category": "back-end"},
+  { "id": "4", "name": "Nodejs", "category": "back-end"}
+]
