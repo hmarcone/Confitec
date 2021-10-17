@@ -1,30 +1,37 @@
-import { UsuarioService } from './services/usuario.service';
-import { UsuarioDetalheComponent } from './components/usuarios/usuario-detalhe/usuario-detalhe.component';
-import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { UsuarioListaComponent } from './components/usuarios/usuario-lista/usuario-lista.component';
-import { ContatosComponent } from './components/contatos/contatos.component';
-import { TituloComponent } from './shared/titulo/titulo.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { UserComponent } from './components/user/user.component';
-import { RegistrationComponent } from './components/user/registration/registration.component';
-import { PerfilComponent } from './components/user/perfil/perfil.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContatosComponent } from './components/contatos/contatos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
+import { UserComponent } from './components/user/user.component';
+import { UsuarioDetalheComponent } from './components/usuarios/usuario-detalhe/usuario-detalhe.component';
+import { UsuarioListaComponent } from './components/usuarios/usuario-lista/usuario-lista.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
+import { UsuarioService } from './services/usuario.service';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { TituloComponent } from './shared/titulo/titulo.component';
 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { ToastrModule } from 'ngx-toastr';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+defineLocale('pt-br', ptBrLocale);
+
 
 @NgModule({
   declarations: [
@@ -39,7 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContatosComponent,
     UsuariosComponent,
     UsuarioListaComponent,
-    UsuarioDetalheComponent
+    UsuarioDetalheComponent,
+    DateTimeFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -51,6 +59,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CollapseModule.forRoot(),
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,
@@ -64,6 +73,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     UsuarioService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -1,3 +1,103 @@
-<p>
-  usuario-detalhe works!
-</p>
+<div class="card rounded shadow-sm">
+  <form [formGroup]="form">
+    <div class="p-3">
+      <p>Form value: {{form.value | json}}</p>
+      <p>Form valid: {{form.status | json}}</p>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Nome</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.nome)" formControlName="nome"
+            placeholder="Insira o nome">
+
+          <div *ngIf="f.nome.errors?.required" class="invalid-feedback">
+            Nome é obrigatório.
+          </div>
+
+          <div *ngIf="f.nome.errors?.minlength" class="invalid-feedback">
+            Nome deve ter no mínimo 3 caracteres.
+          </div>
+          <div *ngIf="f.nome.errors?.maxlength" class="invalid-feedback">
+            Nome deve ter no máximo 256 caracteres.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label>SobreNome</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.sobreNome)" formControlName="sobreNome"
+            placeholder="Insira o sobrenome">
+
+          <div *ngIf="f.sobreNome.errors?.required" class="invalid-feedback">
+            SobreNome é obrigatório.
+          </div>
+
+          <div *ngIf="f.sobreNome.errors?.minlength" class="invalid-feedback">
+            SobreNome deve ter no mínimo 3 caracteres.
+          </div>
+          <div *ngIf="f.sobreNome.errors?.maxlength" class="invalid-feedback">
+            SobreNome deve ter no máximo 256 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label>E-mail</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.email)" formControlName="email"
+            placeholder="Insira o e-mail">
+
+          <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+            E-mail é obrigatório.
+          </div>
+
+          <div *ngIf="f.email.errors?.email && f.email.touched" class="invalid-feedback">
+            Deve ser um endereço de e-mail válido
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Data de Nascimento</label>
+
+          <input type="datetime" class="form-control" [ngClass]="cssValidator(f.dataNascimento)"
+          value="{{usuario.dataNascimento | DateFormatPipe }}" bsDatepicker [bsConfig]="bsConfig" formControlName="dataNascimento"
+          placeholder="" [(ngModel)]="usuario.dataNascimento">
+
+          <!-- <input type="datetime" class="form-control" [ngClass]="cssValidator(f.dataNascimento)"
+          value="{{usuario.dataNascimento | DateFormatPipe }}" bsDatepicker formControlName="dataNascimento"
+          placeholder="" [(ngModel)]="usuario.dataNascimento"> -->
+
+          <div *ngIf="f.dataNascimento.errors?.required && f.dataNascimento.touched" class="invalid-feedback">
+            Data de nascimento é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Escolaridade</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.nome)" formControlName="escolaridade"
+            placeholder="Insira a escolaridade">
+
+          <div *ngIf="f.escolaridade.errors?.required" class="invalid-feedback">
+            Escolaridade é obrigatório.
+          </div>
+
+          <!-- <div *ngIf="f.nome.errors?.minlength" class="invalid-feedback">
+            Escolaridade deve ter no mínimo 3 caracteres.
+          </div>
+          <div *ngIf="f.nome.errors?.maxlength" class="invalid-feedback">
+            Escolaridade deve ter no máximo 256 caracteres.
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="d-flex">
+        <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+          Cancelar alteração
+        </button>
+        <button class="btn btn-success" [disabled]="!form.valid" (click)="salvarAlteracao()">
+          <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
+          Salvar Usuário
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
