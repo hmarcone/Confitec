@@ -1,6 +1,6 @@
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { UsuarioService } from './../../../services/usuario.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -40,7 +40,8 @@ export class UsuarioDetalheComponent implements OnInit {
     private router: ActivatedRoute,
     private usuarioService: UsuarioService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private changeDetector: ChangeDetectorRef
   )
   {
     this.localeService.use('pt-br');
@@ -126,4 +127,7 @@ export class UsuarioDetalheComponent implements OnInit {
     }
   }
 
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
+  }
 }
