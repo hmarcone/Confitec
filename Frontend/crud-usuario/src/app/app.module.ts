@@ -12,12 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContatosComponent } from './components/contatos/contatos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { PerfilComponent } from './components/user/perfil/perfil.component';
-import { RegistrationComponent } from './components/user/registration/registration.component';
-import { UserComponent } from './components/user/user.component';
 import { UsuarioDetalheComponent } from './components/usuarios/usuario-detalhe/usuario-detalhe.component';
 import { UsuarioListaComponent } from './components/usuarios/usuario-lista/usuario-lista.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -37,13 +32,8 @@ defineLocale('pt-br', ptBrLocale);
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
-    PerfilComponent,
-    RegistrationComponent,
-    UserComponent,
     DashboardComponent,
     TituloComponent,
-    ContatosComponent,
     UsuariosComponent,
     UsuarioListaComponent,
     UsuarioDetalheComponent,

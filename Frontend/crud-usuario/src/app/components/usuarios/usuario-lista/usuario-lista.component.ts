@@ -18,6 +18,7 @@ export class UsuarioListaComponent implements OnInit {
   public usuariosFiltrados: Usuario[] = [];
   public usuarioId = 0;
 
+  botaoListar: false;
   private filtroListado = '';
 
   public get filtroLista(): string {

@@ -7,7 +7,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -47,17 +47,18 @@ export class UsuarioDetalheComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private localeService: BsLocaleService,
-    private router: ActivatedRoute,
+    private routerActivate: ActivatedRoute,
     private usuarioService: UsuarioService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private router: Router
   ) {
     this.localeService.use('pt-br');
   }
 
   public carregarUsuario(): void {
-    const usuarioIdParam = this.router.snapshot.paramMap.get('id');
+    const usuarioIdParam = this.routerActivate.snapshot.paramMap.get('id');
 
     if (usuarioIdParam !== null) {
       this.spinner.show();
@@ -125,7 +126,10 @@ export class UsuarioDetalheComponent implements OnInit {
           : { id: this.usuario.id, ...this.form.value };
 
       this.usuarioService[this.estadoSalvar](this.usuario).subscribe(
-        () => this.toastr.success('Usuário salvo com Sucesso!', 'Sucesso'),
+        () => {
+          this.toastr.success('Usuário salvo com Sucesso!', 'Sucesso');
+          this.router.navigate([`usuarios/lista`]);
+        },
         (error: any) => {
           console.error(error);
           this.spinner.hide();
