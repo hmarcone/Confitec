@@ -38,7 +38,15 @@
         <td class="d-none d-md-table-cell">{{usuario.sobreNome}}</td>
         <td class="d-none d-md-table-cell">{{usuario.email}}</td>
         <td>{{usuario.dataNascimento | DateFormatPipe }}</td>
-        <td class="d-none d-md-table-cell">{{usuario.escolaridade }}</td>
+        <td class="d-none d-md-table-cell">
+          <div [ngSwitch]="usuario.escolaridade">
+            <div *ngSwitchCase="'1'">Infantil</div>
+            <div *ngSwitchCase="'2'">Fundamental</div>
+            <div *ngSwitchCase="'3'">Ensino Médio</div>
+            <div *ngSwitchCase="'4'">Ensino Superior</div>
+          </div>
+          <!-- {{usuario.escolaridade }} -->
+        </td>
         <td>
           <!-- <button type="button" class="btn btn-primary btn-sm mr-2" tooltip="Editar">
             <i class="fa fa-edit"></i>
