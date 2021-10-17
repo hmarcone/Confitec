@@ -8,7 +8,7 @@ Este é um projeto de CRUD simples de uma lista de usuários.
 Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [Angular 12](https://angular.io/guide/setup-local#install-the-angular-cli)
-- [Microsoft.AspNetCore.App 2.2.0](https://dotnet.microsoft.com/download/dotnet/5.0)
+- [ASP.NET Core Runtime 5.0.11](https://dotnet.microsoft.com/download/dotnet/5.0)
 - [Entity Framework](https://docs.microsoft.com/pt-br/dotnet/framework/data/adonet/ef/)
 
 ## Como rodar
