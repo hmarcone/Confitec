@@ -54,7 +54,7 @@
     <tfoot *ngIf="!usuarios.length">
       <tr>
         <td colspan="8" class="text-center">
-          <h4>Nenhum evento encontrado!</h4>
+          <h4>Nenhum usuário encontrado!</h4>
         </td>
       </tr>
     </tfoot>
@@ -65,7 +65,7 @@
 
 <ng-template #template>
   <div class="modal-body text-center">
-    <p>Tem certeza que quer deletar o Evento de código {{ this.usuarioId}}?</p>
+    <p>Tem certeza que quer deletar o usuário de código {{ this.usuarioId}}?</p>
     <button type="button" class="btn btn-default" (click)="confirm()">Sim</button>
     <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
   </div>
