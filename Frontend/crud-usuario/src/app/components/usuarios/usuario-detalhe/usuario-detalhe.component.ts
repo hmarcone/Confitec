@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
 import { Usuario } from './../../../models/Usuario';
+import { DateValidator } from 'src/app/helpers/ValidatorDate';
 
 @Component({
   selector: 'app-usuario-detalhe',
@@ -104,7 +105,7 @@ export class UsuarioDetalheComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      dataNascimento: ['', Validators.required],
+      dataNascimento: ['', [Validators.required, DateValidator()]],
       escolaridade: [null, [Validators.required]],
     });
   }
