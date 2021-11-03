@@ -1,19 +1,13 @@
-import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { UsuarioService } from './../../../services/usuario.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { DateValidator } from 'src/app/helpers/ValidatorDate';
 
 import { Usuario } from './../../../models/Usuario';
-import { DateValidator } from 'src/app/helpers/ValidatorDate';
+import { UsuarioService } from './../../../services/usuario.service';
 
 @Component({
   selector: 'app-usuario-detalhe',
